@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  eventTitle: MyString
+  eventType: MyString
+  teamMinSize: 1
+  teamMaxSize: 1
+  dateStart: 2018-01-10
+  dateEnd: 2018-01-10
+  eventPlace: MyString
+  eventDescription: MyText
+  eventResults: MyText
+
+two:
+  eventTitle: MyString
+  eventType: MyString
+  teamMinSize: 1
+  teamMaxSize: 1
+  dateStart: 2018-01-10
+  dateEnd: 2018-01-10
+  eventPlace: MyString
+  eventDescription: MyText
+  eventResults: MyText

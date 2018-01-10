@@ -1,0 +1,52 @@
+ru:
+  activerecord:
+    attributes:
+      event:
+        eventTitle: "Название"
+        eventType: "Тип мероприятия"
+#          contest: "соревнование"
+#          camp: "сборы"
+        dateStart: "Дата начала"
+        dateEnd: "Дата окончания"
+        teamMinSize: "Минимальный размер команд"
+        teamMaxSize: "Максимальный размер команд"
+        eventPlace: "Место проведения"
+        eventDescription: "Описание"
+        eventResults: "Результаты"
+#      user:
+#        email: "E-mail address"
+    errors:
+      models:
+        event:
+          attributes:
+            eventTitle:
+              blank: "не должно быть пусто"
+              taken: "не должно повторять названия предыдущих мероприятий"
+            eventType:
+              blank: "должен быть задан"
+            dateStart:
+              blank: "должна быть задана"
+            dateEnd:
+              blank: "должна быть задана"
+            teamMinSize:
+              blank: "не может быть пусто"
+              not_a_number: "должно быть числом"
+              not_an_integer: "должно быть целым числом"
+              greater_than_or_equal_to: "не должно быть меньше %{count}"
+              less_than_or_equal_to: "не должно превышать %{count}"
+            teamMaxSize:
+              blank: "не может быть пусто"
+              not_a_number: "должно быть числом"
+              not_an_integer: "должно быть целым числом"
+              greater_than_or_equal_to: "не должно быть меньше %{count}"
+              less_than_or_equal_to: "не должно превышать %{count}"
+            eventPlace:
+              blank: "не может быть пусто"
+            eventDescription:
+              blank: "не может быть пусто"
+            eventResults:
+             
+#        user:
+#          attributes:
+#            email:
+#              blank: "is required"

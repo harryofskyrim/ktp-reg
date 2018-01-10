@@ -31,3 +31,43 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      event:
+        eventTitle: "Event title"
+        eventType: "Event type"
+        dateStart: "Start date"
+        dateEnd: "End date"
+        teamMinSize: "Team minimal size"
+        teamMaxSize: "Team maximal size"
+        eventPlace: "Event place"
+        eventDescription: "Event description"
+        eventResults: "Event results"
+#      user:
+#        email: "E-mail address"
+    errors:
+      models:
+        event:
+          attributes:
+            eventTitle:
+              blank: "can't be empty"
+            eventType:
+              blank: "must be set"
+            dateStart:
+              blank: "can't be empty"
+            dateEnd:
+              blank: "can't be empty"
+            teamMinSize:
+              blank: "can't be empty"
+            teamMaxSize:
+              blank: "can't be empty"
+            eventPlace:
+              blank: "can't be empty"
+            eventDescription:
+              blank: "can't be empty"
+            eventResults:
+             
+#        user:
+#          attributes:
+#            email:
+#              blank: "is required"

@@ -1,0 +1,69 @@
+<%= form_with model: @event, local: true do |form| %>
+ 
+	<% if @event.errors.any? %>
+		<div id="error_explanation">
+			<h2>
+				<%= pluralize(@event.errors.count, "error") %> prohibited
+				this event from being saved:
+			</h2>
+			<ul>
+				<% @event.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+ 
+	<p>
+		<%= form.label :eventTitle %><br>
+		<%= form.text_field :eventTitle %>
+	</p>
+ 
+	<p>
+		<%= form.label :eventType %><br>
+		<%= form.radio_button(:eventType, "contest") %>
+		<%= form.label(:eventType_contest, "Соревнование") %>
+		<%= form.radio_button(:eventType, "camp") %>
+		<%= form.label(:eventType_camp, "Сборы") %>
+	</p>
+ 
+	<p>
+		<%= form.label :teamMinSize %><br>
+		<%= form.text_field :teamMinSize %>
+	</p>
+ 
+	<p>
+		<%= form.label :teamMaxSize %><br>
+		<%= form.text_field :teamMaxSize %>
+	</p>
+ 
+	<p>
+		<%= form.label :dateStart %><br>
+		<%= form.date_field :dateStart %>
+	</p>
+ 
+	<p>
+		<%= form.label :dateEnd %><br>
+		<%= form.date_field :dateEnd %>
+	</p>
+ 
+	<p>
+		<%= form.label :eventPlace %><br>
+		<%= form.text_field :eventPlace %>
+	</p>
+ 
+	<p>
+		<%= form.label :eventDescription %><br>
+		<%= form.text_area :eventDescription %>
+	</p>
+ 
+	<p>
+		<%= form.label :eventResults %><br>
+		<%= form.text_area :eventResults %>
+	</p>
+ 
+	<p>
+		<%= form.submit %>
+	</p>
+ 
+<% end %>
