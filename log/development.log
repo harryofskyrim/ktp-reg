@@ -2783,3 +2783,269 @@ Processing by UsersController#edit as HTML
 Completed 200 OK in 71ms (Views: 32.7ms | ActiveRecord: 1.9ms)
 
 
+Started GET "/admin" for 127.0.0.1 at 2018-01-10 21:03:00 +0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (27.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (3.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (11.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (3.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (4.0ms)
+Completed 200 OK in 9052ms (Views: 8630.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-01-10 21:04:00 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (53.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (19.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (37.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (13.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (12.8ms)
+Completed 200 OK in 367ms (Views: 350.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-01-10 21:04:18 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (25.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (7.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (15.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (4.7ms)
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (11.7ms)
+Completed 200 OK in 932ms (Views: 577.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/admin/event?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-01-10 21:04:28 +0300
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"event"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY events.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (152.9ms)
+Completed 200 OK in 210ms (Views: 185.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/event/new?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-01-10 21:04:46 +0300
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"event"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (10.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_datetime.html.haml (5.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_datetime.html.haml (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_text.html.haml (3.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_text.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (7.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax (75.0ms)
+Completed 200 OK in 95ms (Views: 87.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/event?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-01-10 21:05:14 +0300
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"event"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY events.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (84.2ms)
+Completed 200 OK in 105ms (Views: 93.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-01-10 21:05:16 +0300
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY users.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (71.5ms)
+Completed 200 OK in 131ms (Views: 95.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/user/new?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-01-10 21:05:35 +0300
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (9.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_datetime.html.haml (4.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (8.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax (76.8ms)
+Completed 200 OK in 103ms (Views: 93.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/user/new" for 127.0.0.1 at 2018-01-10 21:07:03 +0300
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"model_name"=>"user"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/application
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (2.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_datetime.html.haml (6.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (19.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/application (66.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (4.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (17.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (14.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (19.7ms)
+Completed 200 OK in 335ms (Views: 284.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/admin/user/new" for 127.0.0.1 at 2018-01-10 21:07:19 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"model_name"=>"user"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/application
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (10.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_datetime.html.haml (4.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (12.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/application (76.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (9.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (24.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (5.9ms)
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (25.5ms)
+Completed 200 OK in 1178ms (Views: 797.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/event?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-01-10 21:07:42 +0300
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"event"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY events.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (91.0ms)
+Completed 200 OK in 144ms (Views: 100.9ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/admin/?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-01-10 21:07:44 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax (43.3ms)
+Completed 200 OK in 82ms (Views: 69.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/" for 127.0.0.1 at 2018-01-10 21:24:44 +0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (44.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (12.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (23.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (10.4ms)
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (10.6ms)
+Completed 200 OK in 1746ms (Views: 1094.8ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/admin/event?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-01-10 21:24:54 +0300
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"event"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY events.id desc LIMIT ? OFFSET ?[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (160.2ms)
+Completed 200 OK in 252ms (Views: 192.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/event/new?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-01-10 21:24:57 +0300
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"event"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (6.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (1.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (3.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (1.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_datetime.html.haml (9.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_datetime.html.haml (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_text.html.haml (2.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_text.html.haml (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (7.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/pjax (99.7ms)
+Completed 200 OK in 122ms (Views: 110.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/event/new" for 127.0.0.1 at 2018-01-10 21:25:55 +0300
+Processing by RailsAdmin::MainController#new as HTML
+  Parameters: {"model_name"=>"event"}
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/application
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (2.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_datetime.html.haml (4.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_datetime.html.haml (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_text.html.haml (5.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_form_text.html.haml (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/_submit_buttons.html.haml (12.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/new.html.haml within layouts/rails_admin/application (61.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_secondary_navigation.html.haml (3.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_navigation.html.haml (8.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (6.2ms)
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/layouts/rails_admin/pjax.html.haml (16.0ms)
+Completed 200 OK in 279ms (Views: 223.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2018-01-10 21:26:13 +0300
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]"}
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  Rendering /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax
+  Rendered /var/lib/gems/2.3.0/gems/rails_admin-1.2.0/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax (46.2ms)
+Completed 200 OK in 95ms (Views: 67.1ms | ActiveRecord: 1.8ms)
+
+

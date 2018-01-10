@@ -3,64 +3,64 @@
 <h1>Все грядущие мероприятия:</h1>
  
 <table>
-	<tr>
-		<th>Название</th>
-		<th>Тип</th>
-		<th>Даты</th>
-		<th>Место проведения</th>
-	</tr>
+  <tr>
+    <th>Название</th>
+    <th>Тип</th>
+    <th>Даты</th>
+    <th>Место проведения</th>
+  </tr>
  
-	<% @events.reject{|event| event.dateEnd < Date.today}.sort_by{|event| event.dateStart}.each do |event| %>
-		<tr>
-			<td><%= event.eventTitle %></td>
-			<td>
-				<% if event.eventType == "contest" %>
-					Соревнование
-				<% else %>
-					Сборы
-				<% end %>
-			</td>
-			<td>
-				<%= event.dateStart.strftime('%d.%m.%Y') %>
-				<% if event.dateStart != event.dateEnd %>
-					&nbsp;&mdash;&nbsp;<%= event.dateEnd.strftime('%d.%m.%Y') %>
-				<% end %>
-			</td>
-			<td><%= event.eventPlace %></td>
-			<td><%= link_to 'Show', event_path(event) %></td>
-			<td><%= link_to 'Edit', edit_event_path(event) %></td>
-		</tr>
-	<% end %>
+  <% @events.reject{|event| event.dateEnd < Date.today}.sort_by{|event| event.dateStart}.each do |event| %>
+    <tr>
+      <td><%= event.eventTitle %></td>
+      <td>
+        <% if event.eventType == "contest" %>
+          Соревнование
+        <% else %>
+          Сборы
+        <% end %>
+      </td>
+      <td>
+        <%= event.dateStart.strftime('%d.%m.%Y') %>
+        <% if event.dateStart != event.dateEnd %>
+          &nbsp;&mdash;&nbsp;<%= event.dateEnd.strftime('%d.%m.%Y') %>
+        <% end %>
+      </td>
+      <td><%= event.eventPlace %></td>
+      <td><%= link_to 'Show', event_path(event) %></td>
+      <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    </tr>
+  <% end %>
 </table>
 
 <h1>Все прошедшие мероприятия:</h1>
 
 <table>
-	<tr>
-		<th>Название</th>
-		<th>Тип</th>
-		<th>Даты</th>
-		<th>Место проведения</th>
-	</tr>
-	<% @events.reject{|event| event.dateEnd >= Date.today}.sort_by{|event| event.dateStart}.each do |event| %>
-		<tr>
-			<td><%= event.eventTitle %></td>
-			<td>
-				<% if event.eventType == "contest" %>
-					Соревнование
-				<% else %>
-					Сборы
-				<% end %>
-			</td>
-			<td>
-				<%= event.dateStart.strftime('%d.%m.%Y') %>
-				<% if event.dateStart != event.dateEnd %>
-					&nbsp;&mdash;&nbsp;<%= event.dateEnd.strftime('%d.%m.%Y') %>
-				<% end %>
-			</td>
-			<td><%= event.eventPlace %></td>
-			<td><%= link_to 'Show', event_path(event) %></td>
-			<td><%= link_to 'Edit', edit_event_path(event) %></td>
-		</tr>
-	<% end %>
+  <tr>
+    <th>Название</th>
+    <th>Тип</th>
+    <th>Даты</th>
+    <th>Место проведения</th>
+  </tr>
+  <% @events.reject{|event| event.dateEnd >= Date.today}.sort_by{|event| event.dateStart}.each do |event| %>
+    <tr>
+      <td><%= event.eventTitle %></td>
+      <td>
+        <% if event.eventType == "contest" %>
+          Соревнование
+        <% else %>
+          Сборы
+        <% end %>
+      </td>
+      <td>
+        <%= event.dateStart.strftime('%d.%m.%Y') %>
+        <% if event.dateStart != event.dateEnd %>
+          &nbsp;&mdash;&nbsp;<%= event.dateEnd.strftime('%d.%m.%Y') %>
+        <% end %>
+      </td>
+      <td><%= event.eventPlace %></td>
+      <td><%= link_to 'Show', event_path(event) %></td>
+      <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    </tr>
+  <% end %>
 </table>

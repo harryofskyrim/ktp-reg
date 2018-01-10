@@ -1,17 +1,17 @@
 <p>
-	<h1><%= @event.eventTitle %></h1>
-	<% if @event.eventTitle == 'camp' %>
-		(Сборы)
-	<% else %>
-		(Соревнование)
-	<% end %>
+  <h1><%= @event.eventTitle %></h1>
+  <% if @event.eventTitle == 'camp' %>
+    (Сборы)
+  <% else %>
+    (Соревнование)
+  <% end %>
 </p>
 
 <p>
-	<%= @event.dateStart.strftime('%d.%m.%Y') %>
-	<% if @event.dateStart != @event.dateEnd %>
-		&nbsp;&mdash;&nbsp;<%= @event.dateEnd.strftime('%d.%m.%Y') %>
-	<% end %>
+  <%= @event.dateStart.strftime('%d.%m.%Y') %>
+  <% if @event.dateStart != @event.dateEnd %>
+    &nbsp;&mdash;&nbsp;<%= @event.dateEnd.strftime('%d.%m.%Y') %>
+  <% end %>
 </p>
  
 <p>
