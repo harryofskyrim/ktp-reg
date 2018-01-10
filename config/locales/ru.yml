@@ -13,8 +13,19 @@ ru:
         eventPlace: "Место проведения"
         eventDescription: "Описание"
         eventResults: "Результаты"
-#      user:
-#        email: "E-mail address"
+      user:
+        lastName: "Фамилия"
+        firstName: "Имя"
+        fathersName: "Отчество"
+        born: "Дата рождения"
+        teeSize: "Размер футболки"
+        phoneNumber: "Номер телефона"
+        email: "E-mail"
+        occupation: "Обучающийся"
+        school: "Учебное заведение"
+        group: "Группа/класс"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
     errors:
       models:
         event:
@@ -45,8 +56,23 @@ ru:
             eventDescription:
               blank: "не может быть пусто"
             eventResults:
-             
-#        user:
-#          attributes:
-#            email:
-#              blank: "is required"
+        user:
+          attributes:
+            lastName:
+              blank: "должна быть указана"
+            firstName:
+              blank: "должно быть указано"
+            fathersName:
+              blank: "должно быть указано"
+            email:
+              blank: "должен быть указан"
+              invalid: "должен быть корректным"
+            born:
+              blank: "должна быть указана"
+            occupation:
+            #  blank: "должен быть обозначен (школьник или студент)"
+            password_confirmation:
+              confirmation: "и пароль не совпадают"
+            password:
+              blank: "должен быть указан"
+              too_short: "слишком короткий. Должен быть длиннее 6 символов"

@@ -1,0 +1,29 @@
+<p>
+	<%= @user.lastName %>&nbsp;<%= @user.firstName %>&nbsp;<%= @user.fathersName %>
+</p>
+
+<% if @user.born != nil %>
+<p>
+	Дата рождения:&nbsp;<%= @user.born.strftime('%d.%m.%Y') %>
+</p>
+<% end %>
+
+
+<p>
+	<%= @user.school %>,&nbsp;<%= @user.group %>
+</p>
+
+<p>
+	E-mail:&nbsp;<%= @user.email %>
+</p>
+
+<p>
+	Телефон:&nbsp;<%= @user.phoneNumber %>
+</p>
+
+<p>
+	Размер футболки:&nbsp;<%= @user.teeSize %>
+</p>
+
+
+<%= link_to 'Back', events_path %>  
