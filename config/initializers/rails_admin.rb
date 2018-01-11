@@ -21,12 +21,9 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-	
-	config.authenticate_with do
-		authenticate_or_request_with_http_basic('Login required') do |username, password|
-			user = User.where(email: username, password: password, admin: true).first
-			user
-		end
+	config.parent_controller = "::ApplicationController"
+	config.authorize_with do
+		redirect_to main_app.root_path unless is_admin?
 	end
 
   ## == Gravatar integration ==

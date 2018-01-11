@@ -1,3 +1,7 @@
+<%= link_to 'Редактировать профиль', edit_user_path, :class => 'btn btn-primary' %>
+
+<div class="profile">
+
 <p>
   <%= current_user.lastName %>&nbsp;<%= current_user.firstName %>&nbsp;<%= current_user.fathersName %>
 </p>
@@ -10,20 +14,36 @@
 
 
 <p>
-  <%= current_user.school %>,&nbsp;<%= current_user.group %>
+  <strong>Учебное заведение:</strong>
+  <%= current_user.school %>
 </p>
 
 <p>
-  E-mail:&nbsp;<%= current_user.email %>
+  <strong>
+	<% if current_user.occupation == 'school' %>
+		Класс:
+	<% else %>
+		Группа:
+	<% end %>
+  </strong>
+  <%= current_user.group %>
 </p>
 
 <p>
-  Телефон:&nbsp;<%= current_user.phoneNumber %>
+  <strong>E-mail:</strong>
+  <%= current_user.email %>
 </p>
 
 <p>
-  Размер футболки:&nbsp;<%= current_user.teeSize %>
+  <strong>Телефон:</strong>
+  <%= current_user.phoneNumber %>
 </p>
 
+<p>
+  <strong>Размер футболки:</strong>
+  <%= current_user.teeSize %>
+</p>
 
-<%= link_to 'Back', events_path %>  
+</div>
+
+<%= link_to 'Назад', events_path, :class => 'btn btn-primary' %>  

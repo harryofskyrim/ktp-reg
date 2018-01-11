@@ -8,7 +8,7 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.submit "Войти" %>
+      <%= f.submit "Войти", :class => 'btn btn-primary' %>
     <% end %>
     
     <p>Нет аккаунта? <%= link_to "Создайте!", signup_path %></p>

@@ -8,6 +8,9 @@ module SessionsHelper
 	def logged_in?
 		!current_user.nil?
 	end
+	def is_admin?
+		logged_in? and current_user.admin?
+	end
 	def log_out
 		session.delete(:user_id)
 		@current_user = nil

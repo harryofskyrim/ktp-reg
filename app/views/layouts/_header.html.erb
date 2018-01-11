@@ -1,14 +1,34 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top">
   <div class="container">
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "Главная",   '/home' %></li>
         <li><%= link_to "Мероприятия",   '/events' %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
+			<li>
+				<div style="padding: 15px;">
+					<%= @current_user.firstName %>&nbsp;<%= @current_user.lastName %>
+				</div>
+			</li>
 			<li><%= link_to "Мой профиль", current_user %></li>
-			<li><%= link_to "Выход", logout_path, method: :delete %></li>
+			<li>
+				<%= link_to logout_path, method: :delete do %>
+					<span class="glyphicon glyphicon-log-out"></span> Выход
+				<% end %>
+			</li>
         <% else %>
-			<li><%= link_to "Вход", '/login' %></li>
+			<li>
+				<%= link_to '/signup' do %>
+					<span class="glyphicon glyphicon-user"></span> Регистрация
+				<% end %>
+			</li>
+			<li>
+				<%= link_to '/login' do %>
+					<span class="glyphicon glyphicon-log-in"></span> Вход
+				<% end %>
+			</li>
         <% end %>
       </ul>
     </nav>

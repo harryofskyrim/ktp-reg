@@ -1,26 +1,39 @@
-<p>
-  <h1><%= @event.eventTitle %></h1>
-  <% if @event.eventTitle == 'camp' %>
-    (Сборы)
-  <% else %>
-    (Соревнование)
-  <% end %>
-</p>
+<div class="profile">
+	<h1><%= @event.eventTitle %></h1>
+	<p style="text-align: center;">
+		<% if @event.eventType == "contest" %>
+			(Соревнование)
+		<% else %>
+			(Сборы)
+		<% end %>
+	</p>
 
-<p>
-  <%= @event.dateStart.strftime('%d.%m.%Y') %>
-  <% if @event.dateStart != @event.dateEnd %>
-    &nbsp;&mdash;&nbsp;<%= @event.dateEnd.strftime('%d.%m.%Y') %>
-  <% end %>
-</p>
- 
-<p>
-  <%= @event.eventPlace %>
-</p>
- 
-<p>
-  <%= @event.eventDescription %>
-</p>
+	<p>
+	<strong>Даты проведения:</strong>
+	<%= @event.dateStart.strftime('%d.%m.%Y') %>
+	<% if @event.dateStart != @event.dateEnd %>
+		&nbsp;&mdash;&nbsp;<%= @event.dateEnd.strftime('%d.%m.%Y') %>
+	<% end %>
+	</p>
+	
+	<p>
+	<strong>Место проведения:</strong>
+	<%= @event.eventPlace %>
+	</p>
+	
+	<p>
+	<strong>Описание:</strong><br/>
+	<%= @event.eventDescription %>
+	</p>
 
+	<% if @event.eventResults != nil %> 
+		<p>
+			<strong>Результаты:</strong><br/>
+			<div>
+				<%= @event.eventResults.html_safe %>
+			</div>
+		</p>
+	<% end %>
+</div>
 
-<%= link_to 'Back', events_path %> 
+<%= link_to 'Назад', events_path, :class => 'btn btn-primary' %> 
