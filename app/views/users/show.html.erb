@@ -1,28 +1,28 @@
 <p>
-  <%= @user.lastName %>&nbsp;<%= @user.firstName %>&nbsp;<%= @user.fathersName %>
+  <%= current_user.lastName %>&nbsp;<%= current_user.firstName %>&nbsp;<%= current_user.fathersName %>
 </p>
 
-<% if @user.born != nil %>
+<% if current_user.born != nil %>
 <p>
-  Дата рождения:&nbsp;<%= @user.born.strftime('%d.%m.%Y') %>
+  Дата рождения:&nbsp;<%= current_user.born.strftime('%d.%m.%Y') %>
 </p>
 <% end %>
 
 
 <p>
-  <%= @user.school %>,&nbsp;<%= @user.group %>
+  <%= current_user.school %>,&nbsp;<%= current_user.group %>
 </p>
 
 <p>
-  E-mail:&nbsp;<%= @user.email %>
+  E-mail:&nbsp;<%= current_user.email %>
 </p>
 
 <p>
-  Телефон:&nbsp;<%= @user.phoneNumber %>
+  Телефон:&nbsp;<%= current_user.phoneNumber %>
 </p>
 
 <p>
-  Размер футболки:&nbsp;<%= @user.teeSize %>
+  Размер футболки:&nbsp;<%= current_user.teeSize %>
 </p>
 
 

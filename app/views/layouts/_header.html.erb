@@ -1,0 +1,16 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Главная",   '/home' %></li>
+        <li><%= link_to "Мероприятия",   '/events' %></li>
+        <% if logged_in? %>
+			<li><%= link_to "Мой профиль", current_user %></li>
+			<li><%= link_to "Выход", logout_path, method: :delete %></li>
+        <% else %>
+			<li><%= link_to "Вход", '/login' %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

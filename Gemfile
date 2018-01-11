@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.11'
 # Admin engine
 gem 'rails_admin', '~> 1.2'
+# Bootstrap thingy
+# gem 'bootstrap', '~> 4.0.0.beta3'
+gem 'bootstrap-sass', '~> 3.3.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
