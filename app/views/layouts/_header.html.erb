@@ -13,6 +13,7 @@
 				</div>
 			</li>
 			<li><%= link_to "Мой профиль", current_user %></li>
+			<li><%= link_to "Мои команды", teams_path %></li>
 			<li>
 				<%= link_to logout_path, method: :delete do %>
 					<span class="glyphicon glyphicon-log-out"></span> Выход

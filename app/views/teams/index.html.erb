@@ -1,0 +1,40 @@
+<% if not logged_in? %>
+	<p>Для просмотра своих команд необходимо <%= link_to "войти", '/login' %>.</p>
+<% else %>
+
+<h1>Все команды, в которых есть <%= current_user.firstName%> <%= current_user.lastName%>:</h1>
+ 
+<table class = "listing teams">
+	<tr>
+		<th>Название</th>
+		<th>Количество участников</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% if @teams != nil %>
+		<% @teams.reject{|team| not team.users.include?(current_user)}.sort_by{|team| team.updated_at}.each do |team| %>
+			<tr>
+				<td><%= team.teamTitle %></td>
+				<td><%= team.users.length %></td>
+				<td><%= link_to 'Подробно', team_path(team) %></td>
+				<td>
+					<%= link_to team_path(team), method: :delete, data: { confirm: 'Вы уверены, что хотите удалить команду?' }  do %>
+						<span class="glyphicon glyphicon-remove-circle"></span>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	<% end %>
+	<tr>
+		<td class="no-overflow">
+			<%= link_to '/teams/new' do %>
+				<span class="glyphicon glyphicon-plus-sign"></span> Добавить команду
+			<% end %>
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+<% end %>

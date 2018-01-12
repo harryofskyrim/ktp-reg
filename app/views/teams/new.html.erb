@@ -1,0 +1,36 @@
+<h1>Новая команда</h1>
+
+<% if not logged_in? %>
+	redirect_to root_path
+<% end %>
+
+<%= form_with model: @team, local: true do |form| %>
+ 
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@team.errors.count, "error") %> prohibited
+        this team from being saved:
+      </h2>
+      <ul>
+        <% @team.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :teamTitle %><br>
+    <%= form.text_field :teamTitle %>
+  </p>
+
+<!--  <%= form.hidden_field :user_id, { :value => current_user} %> -->
+  
+  <p>
+    <%= form.submit "Создать команду" , :class => 'btn btn-primary' %>
+  </p>
+ 
+<% end %>
+
+<%= link_to 'Отмена', root_path, :class => 'btn btn-primary' %>

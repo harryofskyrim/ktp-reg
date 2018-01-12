@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	
   def index
     @users = User.all
   end
@@ -28,6 +29,9 @@ class UsersController < ApplicationController
   end
   
   def update
+	if params[:password].blank?
+	  params.delete(:password)
+	end
     @user = User.find(params[:id])
     
     if @user.update(user_params)

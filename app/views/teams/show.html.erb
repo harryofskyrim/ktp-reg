@@ -1,0 +1,41 @@
+<h1>Команда <%= @team.teamTitle %></h1>
+
+<% if not logged_in? or not @team.users.include?(current_user) %>
+	redirect_to root_page
+<% end %>
+<table class = "listing team">
+	<tr>
+		<th>Имя участника</th>
+		<th>Учебное заведение</th>
+		<th>Класс/группа</th>
+		<th></th>
+	</tr>
+	<% @team.users.sort_by{|user| user.lastName}.each do |user| %>
+		<tr>
+			<td><%= user.lastName %>&nbsp;<%= user.firstName %>&nbsp;<%= user.fathersName %></td>
+			<td>
+				<%= user.school %>
+			</td>
+			<td>
+				<%= user.group %>
+			</td>
+			<td>
+				<%= link_to edit_team_path(@team) do %>
+					<span class="glyphicon glyphicon-remove-circle"></span>
+				<% end %>
+			</td>
+		</tr>
+	<% end %>
+	<tr>
+		<td class="no-overflow">
+				<%= link_to edit_team_path(@team) do %>
+					<span class="glyphicon glyphicon-plus-sign"></span> Добавить участника в команду
+				<% end %>
+		</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+<%= link_to 'Отмена', teams_path, :class => 'btn btn-primary', :style => 'margin-top: 15px;' %>

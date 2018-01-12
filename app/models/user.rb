@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+#	has_many :memberships, :foreign_key => :user_id
+#  has_many :teams, :through => :memberships
+	has_and_belongs_to_many :teams
+	
   before_save { self.email = email.downcase }
   validates :lastName, presence: true, length: { maximum: 50 }
   validates :firstName, presence: true, length: { maximum: 50 }
@@ -7,7 +11,7 @@ class User < ApplicationRecord
   validates :occupation, presence: true
   
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, :if => :password
   
   def User.digest(string)
 	  cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
