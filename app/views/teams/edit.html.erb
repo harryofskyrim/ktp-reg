@@ -1,29 +1,21 @@
-<%= form_with model: @team, local: true do |form| %>
- 
-  <% if @team.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@team.errors.count, "error") %> prohibited
-        this team from being saved:
-      </h2>
-      <ul>
-        <% @team.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
-    <%= form.label :teamTitle %><br>
-    <%= form.text_field :teamTitle %>
-  </p>
-
-  <p>
-    <%= form.submit "Создать команду" , :class => 'btn btn-primary' %>
-  </p>
- 
+<%= form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' } do |f| %>
+  <div>
+    Поиск
+    <%= f.text_field(
+      :search_query,
+      class: 'filterrific-periodically-observed'
+    ) %>
+	<%= f.submit 'Поиск', :class => 'btn btn-primary' %>
+    <%= link_to(
+      'Сброс',
+      reset_filterrific_url, :class => 'btn btn-primary'
+    ) %>
+  </div>
 <% end %>
+
+<%= render(
+  partial: 'teams/list'
+) %>
  
-<%= link_to 'Отмена', root_path, :class => 'btn btn-primary' %> 
+<%= link_to 'Отмена', team_path, :class => 'btn btn-primary' %> 
  

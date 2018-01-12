@@ -16,7 +16,7 @@
 			<tr>
 				<td><%= team.teamTitle %></td>
 				<td><%= team.users.length %></td>
-				<td><%= link_to 'Подробно', team_path(team) %></td>
+				<td><%= link_to 'Участники', team_path(team) %></td>
 				<td>
 					<%= link_to team_path(team), method: :delete, data: { confirm: 'Вы уверены, что хотите удалить команду?' }  do %>
 						<span class="glyphicon glyphicon-remove-circle"></span>

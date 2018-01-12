@@ -32,6 +32,8 @@ gem 'rails_admin', '~> 1.2'
 # Bootstrap thingy
 # gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'bootstrap-sass', '~> 3.3.7'
+gem 'filterrific'
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

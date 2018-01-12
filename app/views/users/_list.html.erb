@@ -1,0 +1,26 @@
+<div id="filterrific_results">
+	<div>
+		<%= page_entries_info @users %>
+	</div>
+
+	<table class='listing'>
+		<tr>
+			<th>Имя</th>
+			<th><%= filterrific_sorting_link(@filterrific, :school) %></th>
+			<th>Класс/группа</th>
+		</tr>
+		<% @users.each do |user| %>
+			<tr>
+				<td>
+					<%= user.lastName %>
+					<%= user.firstName %>
+					<%= user.fathersName %>
+				</td>
+				<td><%= user.school %></td>
+				<td><%= user.group %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+<%= will_paginate @users %> 

@@ -19,8 +19,7 @@
 			<td>
 				<%= user.group %>
 			</td>
-			<td>
-				<%= link_to edit_team_path(@team) do %>
+			<td><%= link_to team_path(:team_id => @team.id, :user_id => user.id), :method => :put, data: { confirm: ('Выгнать участника '+user.lastName+' из команды?') } do %>
 					<span class="glyphicon glyphicon-remove-circle"></span>
 				<% end %>
 			</td>
