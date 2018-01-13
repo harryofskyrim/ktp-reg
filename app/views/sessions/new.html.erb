@@ -1,15 +1,18 @@
 <h1>Вход в систему</h1>
+
+<div class = "profile contain">
  
-    <%= form_for(:session, url: login_path) do |f| %>
+	<%= form_for(:session, url: login_path) do |form| %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+		<%= form.label :email %>
+		<%= form.email_field :email, class: 'form-control' %>
+		
+		<%= form.label :password %>
+		<%= form.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Войти", :class => 'btn btn-primary' %>
-    <% end %>
-    
-    <p>Нет аккаунта? <%= link_to "Создайте!", signup_path %></p>
-    
+		<%= form.submit "Войти", :class => 'btn btn-primary' %>
+	<% end %>
+</div>
+		
+<p>Нет аккаунта? <%= link_to "Создайте!", signup_path %></p>
+		

@@ -11,13 +11,14 @@
 		<th>Даты</th>
 		<th>Место проведения</th>
 		<th></th>
+		<th></th>
 		<% if is_admin? %>
 			<th></th>
 		<% end %>
 	</tr>
  
 	<% @events.reject{|event| event.dateEnd < Date.today}.sort_by{|event| event.dateStart}.each do |event| %>
-		<tr>
+		<tr <% if logged_in? and current_user.events.include?(event) %>style="background-color: #eeffee"<% end %>>
 			<td><%= event.eventTitle %></td>
 			<td>
 				<% if event.eventType == "contest" %>
@@ -41,6 +42,15 @@
 					<% end %>
 				</td>
 			<% end %>
+			<td>
+				<% if logged_in? %>
+					<% if event.users.include?(current_user) %>
+						<strong><%= link_to ((event.teams & current_user.teams).first().teamTitle), team_path((event.teams & current_user.teams).first())%></strong>
+					<% else %>
+						<%= link_to 'Регистрация', events_register_path(event) %></td>
+					<% end %>
+				<% end %>
+			</td>
 		</tr>
 	<% end %>
 </table>

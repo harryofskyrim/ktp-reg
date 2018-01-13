@@ -127,11 +127,11 @@ table.events tr th:nth-child(6){
 	width: 40px;
 }
 
-table.teams tr th:nth-child(3){
+table.teams tr th:nth-child(4){
 	width: 100px;
 }
 
-table.teams tr th:nth-child(4){
+table.teams tr th:nth-child(5){
 	width: 40px;
 }
 
@@ -165,6 +165,11 @@ div.profile {
 
 .profile h1 {
 	margin-bottom: 5px;
+}
+
+div.contain {
+	width: 400px;
+	margin: auto;
 }
 
 /* error styling */

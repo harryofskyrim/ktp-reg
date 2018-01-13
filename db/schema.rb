@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112160521) do
+ActiveRecord::Schema.define(version: 20180113085200) do
 
   create_table "events", force: :cascade do |t|
     t.string "eventTitle"
@@ -24,12 +24,34 @@ ActiveRecord::Schema.define(version: 20180112160521) do
     t.text "eventResults"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "fathersNameReq"
+    t.boolean "bornReq"
+    t.boolean "schoolReq"
+    t.boolean "groupReq"
+    t.boolean "phoneNumberReq"
+    t.boolean "teeSizeReq"
+    t.string "schoolType"
+  end
+
+  create_table "events_teams", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "team_id"
+    t.index ["event_id"], name: "index_events_teams_on_event_id"
+    t.index ["team_id"], name: "index_events_teams_on_team_id"
+  end
+
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.index ["event_id"], name: "index_events_users_on_event_id"
+    t.index ["user_id"], name: "index_events_users_on_user_id"
   end
 
   create_table "teams", force: :cascade do |t|
     t.string "teamTitle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "schoolType"
   end
 
   create_table "teams_users", id: false, force: :cascade do |t|

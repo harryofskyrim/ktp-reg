@@ -1,4 +1,7 @@
 class Event < ApplicationRecord
+	has_and_belongs_to_many :teams
+	has_and_belongs_to_many :users
+	
   def valid_date_range_required
     if (dateStart && dateEnd) && (dateStart > dateEnd)
       errors.add(:dateEnd, "не должна быть раньше даты начала")

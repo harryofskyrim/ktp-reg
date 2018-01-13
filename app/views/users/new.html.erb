@@ -1,57 +1,63 @@
 <h1>Создать новый профиль</h1>
  
-<%= form_with model: @user, local: true do |form| %>
- 
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@user.errors.count, "error") %> prohibited
-        this user from being saved:
-      </h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <p>
-    <%= form.label :occupation %><br>
-    <%= form.radio_button(:occupation, "school") %>
-    <%= form.label(:occupation_school, "Школьник") %>
-    <%= form.radio_button(:occupation, "higher") %>
-    <%= form.label(:occupation_higher, "Студент") %>
-  </p>
- 
-  <p>
-    <%= form.label :lastName %><br>
-    <%= form.text_field :lastName %>
-  </p>
- 
-  <p>
-    <%= form.label :firstName %><br>
-    <%= form.text_field :firstName %>
-  </p>
- 
-  <p>
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
-  </p>
+<div class = "profile contain">
+	<%= form_with model: @user, local: true do |form| %>
+	
+	<% if @user.errors.any? %>
+		<div id="error_explanation">
+		<h2>
+			<%= pluralize(@user.errors.count, "error") %> prohibited
+			this user from being saved:
+		</h2>
+		<ul>
+			<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+		</div>
+	<% end %>
+	<p>
+		<%= form.label :occupation %><br>
+		<%= form.radio_button(:occupation, "school") %>
+		<%= form.label(:occupation_school, "Школьник") %>
+		<%= form.radio_button(:occupation, "higher") %>
+		<%= form.label(:occupation_higher, "Студент") %>
+	</p>
+	
+	<p>
+		<%= form.label :lastName %><br>
+		<%= form.text_field :lastName, class: 'form-control' %>
+	</p>
+	
+	<p>
+		<%= form.label :firstName %><br>
+		<%= form.text_field :firstName, class: 'form-control' %>
+	</p>
+	
+	<p>
+		<%= form.label :fathersName %><br>
+		<%= form.text_field :fathersName, class: 'form-control' %>
+	</p>
+	
+	<p>
+		<%= form.label :email %><br>
+		<%= form.text_field :email, class: 'form-control' %>
+	</p>
 
-  <p>
-    <%= form.label :password , "Пароль"%>
-    <%= form.password_field :password %>
-  </p>
- 
-  <p>
-    <%= form.label :password_confirmation, "Подтверждение" %>
-    <%= form.password_field :password_confirmation %>
-  </p>
+	<p>
+		<%= form.label :password , "Пароль"%>
+		<%= form.password_field :password, class: 'form-control' %>
+	</p>
+	
+	<p>
+		<%= form.label :password_confirmation, "Подтверждение" %>
+		<%= form.password_field :password_confirmation, class: 'form-control' %>
+	</p>
 
-  <p>
-    <%= form.submit "Зарегистрироваться" , :class => 'btn btn-primary' %>
-  </p>
- 
-<% end %>
- 
-<%= link_to 'Отмена', root_path, :class => 'btn btn-primary' %> 
+	<p>
+		<%= form.submit "Зарегистрироваться" , :class => 'btn btn-primary' %>
+		<%= link_to 'Отмена', root_path, :class => 'btn btn-primary' %> 
+	</p>
+	
+	<% end %>
+</div>

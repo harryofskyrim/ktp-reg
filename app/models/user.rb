@@ -1,7 +1,6 @@
 class User < ApplicationRecord
-#	has_many :memberships, :foreign_key => :user_id
-#	has_many :teams, :through => :memberships
 	has_and_belongs_to_many :teams
+	has_and_belongs_to_many :events
 		
 	scope :search_query, lambda { |query|
 		return nil  if query.blank?

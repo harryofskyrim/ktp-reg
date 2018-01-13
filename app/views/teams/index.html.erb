@@ -10,12 +10,16 @@
 		<th>Количество участников</th>
 		<th></th>
 		<th></th>
+		<th></th>
 	</tr>
 	<% if @teams != nil %>
-		<% @teams.reject{|team| not team.users.include?(current_user)}.sort_by{|team| team.updated_at}.each do |team| %>
+		<% current_user.teams.sort_by{|team| team.updated_at}.each do |team| %>
 			<tr>
 				<td><%= team.teamTitle %></td>
 				<td><%= team.users.length %></td>
+				<th>
+					<%= team.schoolType %>
+				</th>
 				<td><%= link_to 'Участники', team_path(team) %></td>
 				<td>
 					<%= link_to team_path(team), method: :delete, data: { confirm: 'Вы уверены, что хотите удалить команду?' }  do %>

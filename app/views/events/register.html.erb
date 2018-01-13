@@ -1,0 +1,25 @@
+<% if not logged_in? %>
+	<p>Для просмотра своих команд необходимо <%= link_to "войти", '/login' %>.</p>
+<% else %>
+
+<h1>Выберите команду для участия в <%= @event.eventTitle %>:</h1>
+ 
+<table class = "listing teams">
+	<tr>
+		<th>Название</th>
+		<th>Количество участников</th>
+		<th></th>
+	</tr>
+	<% if @teams != nil %>
+		<% @teams.reject{|team| not (team.users.include?(current_user) and team.users.length >= @event.teamMinSize and team.users.length <= @event.teamMaxSize)}.sort_by{|team| team.updated_at}.each do |team| %>
+			<tr>
+				<td><%= team.teamTitle %></td>
+				<td><%= team.users.length %></td>
+				<td><%= link_to 'Выбрать', events_addteam_path(:event_id => @event.id, :team_id => team.id) %></td>
+			</tr>
+		<% end %>
+	<% end %>
+</table>
+
+<% end %>
+ 

@@ -1,5 +1,9 @@
 ru:
   activerecord:
+    models:
+      event: "мероприятие"
+      user: "пользователь"
+      team: "команда"
     attributes:
       event:
         eventTitle: "Название"
@@ -26,6 +30,9 @@ ru:
         group: "Группа/класс"
         password: "Пароль"
         password_confirmation: "Подтверждение пароля"
+      team:
+        teamTitle: "Название команды"
+        schoolType: "Тип команды"
     errors:
       models:
         event:
@@ -494,26 +501,26 @@ ru:
     next_label: "Следующая →"
     page_entries_info:
       multi_page:
-        few: "Отображено %{model} %{from} - %{to} из %{count}"
-        many: "Отображено %{model} %{from} - %{to} из %{count}"
-        one: "Отображено %{model} %{from} - %{to} из %{count}"
-        other: "Отображено %{model} %{from} - %{to} из %{count}"
+        few: "Отображено %{from} - %{to} из %{count}"
+        many: "Отображено %{from} - %{to} из %{count}"
+        one: "Отображено %{from} - %{to} из %{count}"
+        other: "Отображено %{from} - %{to} из %{count}"
       multi_page_html:
-        few: "Отображено %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
-        many: "Отображено %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
-        one: "Отображено %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
-        other: "Отображено %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+        few: "Отображено <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+        many: "Отображено  <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+        one: "Отображено  <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
+        other: "Отображено  <b>%{from}&nbsp;-&nbsp;%{to}</b> из <b>%{count}</b>"
       single_page:
-        few: "Отображено %{count} %{model}"
-        many: "Отображено %{count} %{model}"
-        one: "Отображена %{count} %{model}"
-        other: "Отображено %{count} %{model}"
-        zero: "%{model} не найдены"
+        few: "Отображено %{count} "
+        many: "Отображено %{count} "
+        one: "Отображена %{count} "
+        other: "Отображено %{count} "
+        zero: "Список пуст"
       single_page_html:
-        few: "Отображено <b>%{count}</b> %{model}"
-        many: "Отображено <b>%{count}</b> %{model}"
-        one: "Отображена <b>%{count}</b> %{model}"
-        other: "Отображено <b>%{count}</b> %{model}"
-        zero: "%{model} не найдены"
+        few: "Отображено <b>%{count}</b> "
+        many: "Отображено <b>%{count}</b> "
+        one: "Отображена <b>%{count}</b> "
+        other: "Отображено <b>%{count}</b> "
+        zero: "Список пуст"
     page_gap: "&hellip;"
     previous_label: "← Предыдущая"

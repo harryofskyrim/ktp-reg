@@ -33,6 +33,7 @@ class TeamsController < ApplicationController
 	def create
 		@team = Team.new(team_params)
 		@team.users << current_user
+		@team.schoolType = current_user.occupation
 		
 		if @team.save
 			flash[:success] = "Команда успешно создана!"
@@ -47,15 +48,39 @@ class TeamsController < ApplicationController
 		@team = Team.find(params[:id])
 		if !@team.users.include? @user
 			@team.users << @user
+			if @team.schoolType == nil
+				@team.schoolType = @user.occupation
+			else
+				if @team.schoolType != @user.occupation
+					@team.schoolType = 'mixed'
+				end
+			end
 		else
+			@team.events.each do |event|
+				event.users.delete(@user)
+			end
 			@team.users.delete(@user)
+			@user.teams.delete(@team)
+			if @team.users.length < 1
+				@team.destroy
+			else
+				@team.schoolType = nil
+				@team.users.each do |usr|
+					if @team.schoolType == nil
+						@team.schoolType = usr.occupation
+					else
+						if @team.schoolType != usr.occupation
+							@team.schoolType = 'mixed'
+						end
+					end
+				end
+			end
 		end
-		
-#		if @team.update(team_params)
+		if @team.update(team_params)
 			redirect_to @team
-#		else
-#			render 'edit'
-#		end
+		else
+			render 'edit'
+		end
 	end
 	
 	def destroy
@@ -67,6 +92,6 @@ class TeamsController < ApplicationController
 	
 	private
 	def team_params
-		params.require(:team).permit(:teamTitle)
+		params.fetch(:team, Hash.new).permit(:teamTitle, :schoolType)
 	end
 end

@@ -10,7 +10,7 @@
 			<th>Класс/группа</th>
 		</tr>
 		<% @users.each do |user| %>
-			<tr>
+			<tr <% if @team.users.include?(user) %>style="background-color: #eeffee"<% end %>>
 				<td>
 					<%= link_to team_path(:team_id => @team.id, :user_id => user.id), :method => :put do %>
 						<%= user.lastName %>

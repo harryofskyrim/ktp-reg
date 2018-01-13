@@ -28,6 +28,16 @@
   </p>
  
   <p>
+    <%= form.label 'Кто может участвовать?' %><br>
+    <%= form.radio_button(:schoolType, "school") %>
+    <%= form.label(:schoolType_school, "Только школьники") %>
+    <%= form.radio_button(:schoolType, "higher") %>
+    <%= form.label(:schoolType_higher, "Только студенты") %>
+    <%= form.radio_button(:schoolType, "mixed") %>
+    <%= form.label(:schoolType_mixed, "Все") %>
+  </p>
+ 
+  <p>
     <%= form.label :teamMinSize %><br>
     <%= form.text_field :teamMinSize %>
   </p>

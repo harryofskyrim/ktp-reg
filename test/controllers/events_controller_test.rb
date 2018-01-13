@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class EventsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get register" do
+    get events_register_url
+    assert_response :success
+  end
+
 end

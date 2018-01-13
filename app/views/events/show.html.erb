@@ -2,10 +2,17 @@
 	<h1><%= @event.eventTitle %></h1>
 	<p style="text-align: center;">
 		<% if @event.eventType == "contest" %>
-			(Соревнование)
+			(Соревнование для
 		<% else %>
-			(Сборы)
+			(Сборы для
 		<% end %>
+		<% if @event.schoolType == "school" %>
+			школьников)
+		<% else if @event.schoolType == "higher" %>
+			студентов)
+		<% else %>
+			всех)
+		<% end end %>
 	</p>
 
 	<p>
@@ -22,9 +29,35 @@
 	</p>
 	
 	<p>
+	<strong>Количество человек в команде:</strong>
+	<%= @event.teamMinSize %>
+	<% if @event.teamMinSize < @event.teamMaxSize %>
+	&mdash; <%= @event.teamMaxSize %>
+	<% end %>
+	</p>
+	
+	<p>
 	<strong>Описание:</strong><br/>
 	<%= @event.eventDescription %>
 	</p>
+	
+	<h2>Список зарегистрированных команд:</h2>
+	<table class = "listing teams">
+		<tr>
+			<th>Название</th>
+			<th>Участники</th>
+		</tr>
+		<% if @event.teams.length > 0 %>
+			<% @event.teams.each do |team| %>
+				<tr>
+					<td><%= team.teamTitle %></td>
+					<td>
+						<% team.users.map { |f| f.lastName }.join ',' %>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
 
 	<% if @event.eventResults != nil %> 
 		<p>

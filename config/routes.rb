@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 	
+  get 'events/addteam'
+
+  get 'events/register'
+
   get 'teams/new'
 
 	root 'static_pages#home'
