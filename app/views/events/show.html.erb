@@ -1,3 +1,7 @@
+<% if is_admin? %>
+	<%= link_to 'Редактировать', edit_event_path(@event), :class => 'btn btn-primary' %>
+<% end %>
+
 <div class="profile">
 	<h1><%= @event.eventTitle %></h1>
 	<p style="text-align: center;">
@@ -41,7 +45,17 @@
 	<%= @event.eventDescription %>
 	</p>
 	
-	<h2>Список зарегистрированных команд:</h2>
+	<p style="color:green;">
+	<% if logged_in? and @event.dateStart > Date.tomorrow %>
+		<% if @event.users.include?(current_user) %>
+			Вы зарегистрированы на это мероприятие с командой <%= link_to ((@event.teams & current_user.teams).first().teamTitle), team_path((@event.teams & current_user.teams).first())%> </strong>
+		<% else %>
+			<%= link_to 'Регистрация', events_register_path(@event) %></td>
+		<% end %>
+	<% end %>
+	</p>
+	
+	<strong>Список зарегистрированных команд:</strong>
 	<table class = "listing teams">
 		<tr>
 			<th>Название</th>
@@ -52,7 +66,7 @@
 				<tr>
 					<td><%= team.teamTitle %></td>
 					<td>
-						<% team.users.map { |f| f.lastName }.join ',' %>
+						<%= team.users.map { |u| u.lastName }.join ', ' %>
 					</td>
 				</tr>
 			<% end %>

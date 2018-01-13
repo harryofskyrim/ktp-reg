@@ -112,6 +112,10 @@ table.listing th, td {
 	text-overflow: ellipsis;
 }
 
+table.picking tr + tr:hover {
+	background-color: #f7f7f7;
+}
+
 table.events tr td:nth-child(3){
 	overflow: auto;
 	text-overflow: initial;
@@ -123,7 +127,7 @@ table.events tr th:nth-child(5){
 	width: 100px;
 }
 
-table.events tr th:nth-child(6){
+table.events tr th:nth-child(7){
 	width: 40px;
 }
 

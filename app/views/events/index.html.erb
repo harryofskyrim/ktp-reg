@@ -35,15 +35,8 @@
 			</td>
 			<td><%= event.eventPlace %></td>
 			<td><%= link_to 'Подробно', event_path(event) %></td>
-			<% if is_admin? %>
-				<td>
-					<%= link_to edit_event_path(event) do %>
-						<span class="glyphicon glyphicon-edit"></span>
-					<% end %>
-				</td>
-			<% end %>
 			<td>
-				<% if logged_in? %>
+				<% if logged_in? and event.dateStart > Date.tomorrow %>
 					<% if event.users.include?(current_user) %>
 						<strong><%= link_to ((event.teams & current_user.teams).first().teamTitle), team_path((event.teams & current_user.teams).first())%></strong>
 					<% else %>
@@ -51,6 +44,13 @@
 					<% end %>
 				<% end %>
 			</td>
+			<% if is_admin? %>
+				<td>
+					<%= link_to edit_event_path(event) do %>
+						<span class="glyphicon glyphicon-edit"></span>
+					<% end %>
+				</td>
+			<% end %>
 		</tr>
 	<% end %>
 </table>

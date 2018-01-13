@@ -64,16 +64,17 @@
  
   <p>
     <%= form.label :eventDescription %><br>
-    <%= form.text_area :eventDescription %>
+    <%= form.text_area :eventDescription, :style => 'width:100%;' %>
   </p>
  
   <p>
     <%= form.label :eventResults %><br>
-    <%= form.text_area :eventResults %>
+    <%= form.text_area :eventResults, :style => 'width:100%;font-family:monospace;' %>
   </p>
  
   <p>
-    <%= form.submit %>
+    <%= form.submit 'Сохранить', :class => 'btn btn-primary' %>
+	<%= link_to 'Отмена', events_path, :class => 'btn btn-primary' %> 
   </p>
  
 <% end %>

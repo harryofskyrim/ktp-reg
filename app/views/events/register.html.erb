@@ -1,17 +1,17 @@
 <% if not logged_in? %>
 	<p>Для просмотра своих команд необходимо <%= link_to "войти", '/login' %>.</p>
-<% else %>
+<% else if @event.dateStart > Date.tomorrow %>
 
 <h1>Выберите команду для участия в <%= @event.eventTitle %>:</h1>
  
-<table class = "listing teams">
+<table class = "listing picking teams">
 	<tr>
 		<th>Название</th>
 		<th>Количество участников</th>
 		<th></th>
 	</tr>
 	<% if @teams != nil %>
-		<% @teams.reject{|team| not (team.users.include?(current_user) and team.users.length >= @event.teamMinSize and team.users.length <= @event.teamMaxSize)}.sort_by{|team| team.updated_at}.each do |team| %>
+		<% @teams.reject{|team| not (team.users.include?(current_user) and team.users.length >= @event.teamMinSize and team.users.length <= @event.teamMaxSize and (@event.schoolType == 'mixed' or @event.schoolType == team.schoolType)) or (team.users & @event.users).length > 0 }.sort_by{|team| team.updated_at}.each do |team| %>
 			<tr>
 				<td><%= team.teamTitle %></td>
 				<td><%= team.users.length %></td>
@@ -21,5 +21,6 @@
 	<% end %>
 </table>
 
-<% end %>
- 
+<% else redirect_to events_path end end %>
+
+<%= link_to 'Назад', events_path, :class => 'btn btn-primary' %>  

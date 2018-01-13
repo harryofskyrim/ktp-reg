@@ -3,47 +3,52 @@
 <div class="profile">
 
 <p>
-  <%= current_user.lastName %>&nbsp;<%= current_user.firstName %>&nbsp;<%= current_user.fathersName %>
+	<%= current_user.lastName %>&nbsp;<%= current_user.firstName %>&nbsp;<%= current_user.fathersName %>,
+	<% if current_user.occupation == "school" %>
+		школьник
+	<% else %>
+		студент
+	<% end %>
 </p>
 
 <% if current_user.born != nil %>
 <p>
-  Дата рождения:&nbsp;<%= current_user.born.strftime('%d.%m.%Y') %>
+	Дата рождения:&nbsp;<%= current_user.born.strftime('%d.%m.%Y') %>
 </p>
 <% end %>
 
 
 <p>
-  <strong>Учебное заведение:</strong>
-  <%= current_user.school %>
+	<strong>Учебное заведение:</strong>
+	<%= current_user.school %>
 </p>
 
 <p>
-  <strong>
+	<strong>
 	<% if current_user.occupation == 'school' %>
 		Класс:
 	<% else %>
 		Группа:
 	<% end %>
-  </strong>
-  <%= current_user.group %>
+	</strong>
+	<%= current_user.group %>
 </p>
 
 <p>
-  <strong>E-mail:</strong>
-  <%= current_user.email %>
+	<strong>E-mail:</strong>
+	<%= current_user.email %>
 </p>
 
 <p>
-  <strong>Телефон:</strong>
-  <%= current_user.phoneNumber %>
+	<strong>Телефон:</strong>
+	<%= current_user.phoneNumber %>
 </p>
 
 <p>
-  <strong>Размер футболки:</strong>
-  <%= current_user.teeSize %>
+	<strong>Размер футболки:</strong>
+	<%= current_user.teeSize %>
 </p>
 
 </div>
 
-<%= link_to 'Назад', events_path, :class => 'btn btn-primary' %>  
+<%= link_to 'Назад', events_path, :class => 'btn btn-primary' %>	
