@@ -1,80 +1,88 @@
 <%= form_with model: @event, local: true do |form| %>
  
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@event.errors.count, "error") %> prohibited
-        this event from being saved:
-      </h2>
-      <ul>
-        <% @event.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<% if @event.errors.any? %>
+		<div id="error_explanation">
+			<h2>
+				<%= pluralize(@event.errors.count, "error") %> prohibited
+				this event from being saved:
+			</h2>
+			<ul>
+				<% @event.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class='error'>
+		<%= form.label :eventTitle %><br>
+		<%= form.text_field :eventTitle, id: 'eventTitle', onkeyup: 'validateEvent()' %>
+		<div class="error_message" id="eventTitleError">Должно быть заполнено</div>
+	</div>
+
+	<div>
+		<%= form.label :eventType %><br>
+		<%= form.radio_button(:eventType, "contest", id: 'contest', onclick: 'validateEvent()') %>
+		<%= form.label(:eventType_contest, "Соревнование") %>
+		<%= form.radio_button(:eventType, "camp", id: 'camp', onclick: 'validateEvent()') %>
+		<%= form.label(:eventType_camp, "Сборы") %>
+		<div class="error_message" id="eventTypeError"></div>
+	</div>
  
-  <p>
-    <%= form.label :eventTitle %><br>
-    <%= form.text_field :eventTitle %>
-  </p>
+	<div>
+		<%= form.label 'Кто может участвовать?' %><br>
+		<%= form.radio_button(:schoolType, "school", id: 'school', onclick: 'validateEvent()') %>
+		<%= form.label(:schoolType_school, "Только школьники") %>
+		<%= form.radio_button(:schoolType, "higher", id: 'higher', onclick: 'validateEvent()') %>
+		<%= form.label(:schoolType_higher, "Только студенты") %>
+		<%= form.radio_button(:schoolType, "mixed", id: 'mixed', onclick: 'validateEvent()') %>
+		<%= form.label(:schoolType_mixed, "Все") %>
+		<div class="error_message" id="schoolTypeError"></div>
+	</div>
  
-  <p>
-    <%= form.label :eventType %><br>
-    <%= form.radio_button(:eventType, "contest") %>
-    <%= form.label(:eventType_contest, "Соревнование") %>
-    <%= form.radio_button(:eventType, "camp") %>
-    <%= form.label(:eventType_camp, "Сборы") %>
-  </p>
+	<div>
+		<%= form.label :teamMinSize %><br>
+		<%= form.text_field :teamMinSize, id: 'teamMinSize', onkeyup: 'validateEvent()' %>
+		<div class="error_message" id="teamMinSizeError"></div>
+	</div>
  
-  <p>
-    <%= form.label 'Кто может участвовать?' %><br>
-    <%= form.radio_button(:schoolType, "school") %>
-    <%= form.label(:schoolType_school, "Только школьники") %>
-    <%= form.radio_button(:schoolType, "higher") %>
-    <%= form.label(:schoolType_higher, "Только студенты") %>
-    <%= form.radio_button(:schoolType, "mixed") %>
-    <%= form.label(:schoolType_mixed, "Все") %>
-  </p>
+	<div>
+		<%= form.label :teamMaxSize %><br>
+		<%= form.text_field :teamMaxSize, id: 'teamMaxSize', onkeyup: 'validateEvent()' %>
+		<div class="error_message" id="teamMaxSizeError"></div>
+	</div>
  
-  <p>
-    <%= form.label :teamMinSize %><br>
-    <%= form.text_field :teamMinSize %>
-  </p>
+	<div>
+		<%= form.label :dateStart %><br>
+		<%= form.date_field :dateStart, id: 'dateStart', onclick: 'validateEvent()' %>
+		<div class="error_message" id="dateStartError"></div>
+	</div>
  
-  <p>
-    <%= form.label :teamMaxSize %><br>
-    <%= form.text_field :teamMaxSize %>
-  </p>
+	<div>
+		<%= form.label :dateEnd %><br>
+		<%= form.date_field :dateEnd, id: 'dateEnd', onclick: 'validateEvent()' %>
+		<div class="error_message" id="dateEndError"></div>
+	</div>
  
-  <p>
-    <%= form.label :dateStart %><br>
-    <%= form.date_field :dateStart %>
-  </p>
+	<div>
+		<%= form.label :eventPlace %><br>
+		<%= form.text_field :eventPlace, id: 'eventPlace', onkeyup: 'validateEvent()' %>
+		<div class="error_message" id="eventPlaceError"></div>
+	</div>
  
-  <p>
-    <%= form.label :dateEnd %><br>
-    <%= form.date_field :dateEnd %>
-  </p>
+	<div>
+		<%= form.label :eventDescription %><br>
+		<%= form.text_area :eventDescription, :style => 'width:100%;' %>
+	</div>
  
-  <p>
-    <%= form.label :eventPlace %><br>
-    <%= form.text_field :eventPlace %>
-  </p>
+	<div>
+		<%= form.label :eventResults %><br>
+		<%= form.text_area :eventResults, :style => 'width:100%;font-family:monospace;' %>
+	</div>
  
-  <p>
-    <%= form.label :eventDescription %><br>
-    <%= form.text_area :eventDescription, :style => 'width:100%;' %>
-  </p>
- 
-  <p>
-    <%= form.label :eventResults %><br>
-    <%= form.text_area :eventResults, :style => 'width:100%;font-family:monospace;' %>
-  </p>
- 
-  <p>
-    <%= form.submit 'Сохранить', :class => 'btn btn-primary' %>
-	<%= link_to 'Отмена', events_path, :class => 'btn btn-primary' %> 
-  </p>
+	<div>
+		<%= form.submit 'Сохранить', :class => 'btn btn-primary', :id => 'submit', :disabled => 'true' %>
+		<%= link_to 'Отмена', events_path, :class => 'btn btn-primary' %> 
+	</div>
  
 <% end %>

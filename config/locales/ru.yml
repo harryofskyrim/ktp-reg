@@ -21,6 +21,7 @@ ru:
         lastName: "Фамилия"
         firstName: "Имя"
         fathersName: "Отчество"
+        cfhandle: "Хэндл на codeforces.com"
         born: "Дата рождения"
         teeSize: "Размер футболки"
         phoneNumber: "Номер телефона"

@@ -5,94 +5,101 @@
 <h1>Все грядущие и текущие мероприятия:</h1>
  
 <table class = "listing events">
-	<tr>
-		<th>Название</th>
-		<th>Тип</th>
-		<th>Даты</th>
-		<th>Место проведения</th>
-		<th></th>
-		<th></th>
-		<% if is_admin? %>
+	<thead>
+		<tr class="sorting-header">
+			<th onclick="sortEvents(0, 1)">Название</th>
+			<th onclick="sortEvents(1, 1)">Тип</th>
+			<th onclick="sortEvents(2, 1)">Даты</th>
+			<th onclick="sortEvents(3, 1)">Место проведения</th>
 			<th></th>
-		<% end %>
-	</tr>
- 
-	<% @events.reject{|event| event.dateEnd < Date.today}.sort_by{|event| event.dateStart}.each do |event| %>
-		<tr <% if logged_in? and current_user.events.include?(event) %>style="background-color: #eeffee"<% end %>>
-			<td><%= event.eventTitle %></td>
-			<td>
-				<% if event.eventType == "contest" %>
-					Соревнование
-				<% else %>
-					Сборы
-				<% end %>
-			</td>
-			<td>
-				<%= event.dateStart.strftime('%d.%m.%Y') %>
-				<% if event.dateStart != event.dateEnd %>
-					&nbsp;&mdash;&nbsp;<%= event.dateEnd.strftime('%d.%m.%Y') %>
-				<% end %>
-			</td>
-			<td><%= event.eventPlace %></td>
-			<td><%= link_to 'Подробно', event_path(event) %></td>
-			<td>
-				<% if logged_in? and event.dateStart > Date.tomorrow %>
-					<% if event.users.include?(current_user) %>
-						<strong><%= link_to ((event.teams & current_user.teams).first().teamTitle), team_path((event.teams & current_user.teams).first())%></strong>
-					<% else %>
-						<%= link_to 'Регистрация', events_register_path(event) %></td>
-					<% end %>
-				<% end %>
-			</td>
+			<th></th>
 			<% if is_admin? %>
-				<td>
-					<%= link_to edit_event_path(event) do %>
-						<span class="glyphicon glyphicon-edit"></span>
-					<% end %>
-				</td>
+				<th></th>
 			<% end %>
 		</tr>
-	<% end %>
+	</thead>
+	<tbody id="table1">
+		<% @events.reject{|event| event.dateEnd < Date.today}.sort_by{|event| event.dateStart}.each do |event| %>
+			<tr <% if logged_in? and current_user.events.include?(event) %>style="background-color: #eeffee"<% end %>>
+				<td><%= event.eventTitle %></td>
+				<td>
+					<% if event.eventType == "contest" %>
+						Соревнование
+					<% else %>
+						Сборы
+					<% end %>
+				</td>
+				<td>
+					<%= event.dateStart.strftime('%d.%m.%Y') %>
+					<% if event.dateStart != event.dateEnd %>
+						&nbsp;&mdash;&nbsp;<%= event.dateEnd.strftime('%d.%m.%Y') %>
+					<% end %>
+				</td>
+				<td><%= event.eventPlace %></td>
+				<td><%= link_to 'Подробно', event_path(event) %></td>
+				<td>
+					<% if event.dateStart > Date.tomorrow %>
+						<% if event.users.include?(current_user) %>
+							<strong><%= link_to ((event.teams & current_user.teams).first().teamTitle), team_path((event.teams & current_user.teams).first())%></strong>
+						<% else %>
+							<%= link_to 'Регистрация', events_register_path(event) %></td>
+						<% end %>
+					<% end %>
+				</td>
+				<% if is_admin? %>
+					<td>
+						<%= link_to edit_event_path(event) do %>
+							<span class="glyphicon glyphicon-edit"></span>
+						<% end %>
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
 <h1>Все прошедшие мероприятия:</h1>
 
 <table class = "listing events" >
-	<tr>
-		<th>Название</th>
-		<th>Тип</th>
-		<th>Даты</th>
-		<th>Место проведения</th>
-		<th></th>
-		<% if is_admin? %>
+	<thead>
+		<tr class="sorting-header">
+			<th onclick="sortEvents(0, 2)">Название</th>
+			<th onclick="sortEvents(1, 2)">Тип</th>
+			<th onclick="sortEvents(2, 2)">Даты</th>
+			<th onclick="sortEvents(3, 2)">Место проведения</th>
 			<th></th>
-		<% end %>
-	</tr>
-	<% @events.reject{|event| event.dateEnd >= Date.today}.sort_by{|event| event.dateStart}.each do |event| %>
-		<tr>
-			<td><%= event.eventTitle %></td>
-			<td>
-				<% if event.eventType == "contest" %>
-					Соревнование
-				<% else %>
-					Сборы
-				<% end %>
-			</td>
-			<td>
-				<%= event.dateStart.strftime('%d.%m.%Y') %>
-				<% if event.dateStart != event.dateEnd %>
-					&nbsp;&mdash;&nbsp;<%= event.dateEnd.strftime('%d.%m.%Y') %>
-				<% end %>
-			</td>
-			<td><%= event.eventPlace %></td>
-			<td><%= link_to 'Подробно', event_path(event) %></td>
 			<% if is_admin? %>
-				<td>
-					<%= link_to edit_event_path(event) do %>
-						<span class="glyphicon glyphicon-edit"></span>
-					<% end %>
-				</td>
+				<th></th>
 			<% end %>
 		</tr>
-	<% end %>
+	</thead>
+	<tbody id="table2">
+		<% @events.reject{|event| event.dateEnd >= Date.today}.sort_by{|event| event.dateStart}.each do |event| %>
+			<tr>
+				<td><%= event.eventTitle %></td>
+				<td>
+					<% if event.eventType == "contest" %>
+						Соревнование
+					<% else %>
+						Сборы
+					<% end %>
+				</td>
+				<td>
+					<%= event.dateStart.strftime('%d.%m.%Y') %>
+					<% if event.dateStart != event.dateEnd %>
+						&nbsp;&mdash;&nbsp;<%= event.dateEnd.strftime('%d.%m.%Y') %>
+					<% end %>
+				</td>
+				<td><%= event.eventPlace %></td>
+				<td><%= link_to 'Подробно', event_path(event) %></td>
+				<% if is_admin? %>
+					<td>
+						<%= link_to edit_event_path(event) do %>
+							<span class="glyphicon glyphicon-edit"></span>
+						<% end %>
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+	</tbody>
 </table>

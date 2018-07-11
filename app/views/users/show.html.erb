@@ -40,6 +40,13 @@
 </p>
 
 <p>
+	<strong>Хэндл на <a href="codeforces.com">codeforces.com</a>:</strong>
+	<%if !current_user.cfhandle.blank? %>
+	<a href="https://codeforces.com/profile/<%=current_user.cfhandle%>"><%=current_user.cfhandle%></a>
+	<%end%>
+</p>
+
+<p>
 	<strong>Телефон:</strong>
 	<%= current_user.phoneNumber %>
 </p>

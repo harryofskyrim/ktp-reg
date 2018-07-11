@@ -14,6 +14,8 @@ class TeamsController < ApplicationController
 	
 	def edit
 		@team = Team.find(params[:id])
+		@users = User.all;
+=begin
 		@filterrific = initialize_filterrific(
 			User,
 			params[:filterrific],
@@ -28,6 +30,7 @@ class TeamsController < ApplicationController
 		rescue ActiveRecord::RecordNotFound => e
 			puts "Had to reset filterrific params: #{ e.message }"
 			redirect_to(reset_filterrific_url(format: :html)) and return
+=end
 	end
 	
 	def create

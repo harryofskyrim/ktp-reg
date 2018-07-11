@@ -1,7 +1,9 @@
+<%= javascript_include_tag('validateForm.js') %>
+
 <h1>Создать новый профиль</h1>
  
 <div class = "profile contain">
-	<%= form_with model: @user, local: true do |form| %>
+	<%= form_with model: @user, local: true, id: 'form' do |form| %>
 	
 	<% if @user.errors.any? %>
 		<div id="error_explanation">
@@ -16,48 +18,63 @@
 		</ul>
 		</div>
 	<% end %>
-	<p>
-		<%= form.label :occupation %><br>
-		<%= form.radio_button(:occupation, "school") %>
-		<%= form.label(:occupation_school, "Школьник") %>
-		<%= form.radio_button(:occupation, "higher") %>
-		<%= form.label(:occupation_higher, "Студент") %>
-	</p>
+	<div class='error'>
+		<div>
+			<%= form.label :occupation %><br>
+			<%= form.radio_button(:occupation, "school", id: 'school', onclick: 'validate()') %>
+			<%= form.label(:occupation_school, "Школьник") %>
+			<%= form.radio_button(:occupation, "higher", id: 'higher', onclick: 'validate()') %>
+			<%= form.label(:occupation_higher, "Студент") %>
+		</div>
+		<div class="error_message" id="schoolError">Нужно выбрать один из пунктов</div>
+	</div>
 	
-	<p>
+	<div>
 		<%= form.label :lastName %><br>
-		<%= form.text_field :lastName, class: 'form-control' %>
-	</p>
+		<%= form.text_field :lastName, class: 'form-control', id: 'lastName', onkeyup: 'validate()' %>
+		<div class="error_message" id="lastNameError"></div>
+	</div>
 	
-	<p>
+	<div>
 		<%= form.label :firstName %><br>
-		<%= form.text_field :firstName, class: 'form-control' %>
-	</p>
+		<%= form.text_field :firstName, class: 'form-control', id: 'firstName', onkeyup: 'validate()' %>
+		<div class="error_message" id="firstNameError"></div>
+	</div>
 	
-	<p>
+	<div>
 		<%= form.label :fathersName %><br>
-		<%= form.text_field :fathersName, class: 'form-control' %>
-	</p>
+		<%= form.text_field :fathersName, class: 'form-control', id: 'fathersName', onkeyup: 'validate()' %>
+		<div class="error_message" id="fathersNameError"></div>
+	</div>
 	
-	<p>
-		<%= form.label :email %><br>
-		<%= form.text_field :email, class: 'form-control' %>
-	</p>
+	<div>
+		<%= form.label :email %> (ваш логин при входе в систему)<br>
+		<%= form.text_field :email, class: 'form-control', id: 'email', onkeyup: 'validate()' %>
+		<div class="error_message" id="emailError"></div>
+	</div>
+	
+	<div>
+		<%= form.label :cfhandle %><br>
+		<%= form.text_field :cfhandle, class: 'form-control', id: 'cfhandle' %>
+		<div class="error_message" id="cfhandleError"></div>
+	</div>
 
-	<p>
+	<div>
 		<%= form.label :password , "Пароль"%>
-		<%= form.password_field :password, class: 'form-control' %>
-	</p>
+		<%= form.password_field :password, class: 'form-control', id: 'password', onkeyup: 'validate()' %>
+		<div class="error_message" id="passwordError"></div>
+	</div>
 	
-	<p>
+	<div>
 		<%= form.label :password_confirmation, "Подтверждение" %>
-		<%= form.password_field :password_confirmation, class: 'form-control' %>
-	</p>
+		<%= form.password_field :password_confirmation, class: 'form-control', id: 'password_confirmation', onkeyup: 'validate()' %>
+		<div class="error_message" id="passwordConfError"></div>
+	</div>
 
-	<p>
-		<%= form.submit "Зарегистрироваться" , :class => 'btn btn-primary' %>
+	<div>
+		<%= form.submit "Зарегистрироваться" , :class => 'btn btn-primary', :id => 'submit', :disabled => 'true' %>
 		<%= link_to 'Отмена', root_path, :class => 'btn btn-primary' %> 
-	</p>
+	</div>
 	
 	<% end %>
 </div>

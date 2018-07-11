@@ -1,29 +1,51 @@
-<div id="filterrific_results">
-	<div>
-		<%= page_entries_info @users %>
-	</div>
+<%= javascript_include_tag('list.js') %>
+<%= javascript_include_tag('searchAndSort.js') %>
+
+<div>
+	<table class='listing'>
+		<tbody>
+			<tr>
+				<td>
+					<input type="text" id="searchName" onkeyup="filterSearch()" placeholder="Имя">
+				</td>
+				<td>
+					<input type="text" id="searchSchool" onkeyup="filterSearch()" placeholder="Учебное заведение">
+				</td>
+				<td>
+					<input type="text" id="searchGroup" onkeyup="filterSearch()" placeholder="Класс/группа">
+				</td>
+				<td>
+					<input type="text" id="searchMin" onkeyup="filterSearch()" placeholder="min"> &mdash; <input type="text" id="searchMax" onkeyup="filterSearch()" placeholder="max">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
 
 	<table class='listing'>
-		<tr>
-			<th>Имя</th>
-			<th><%= filterrific_sorting_link(@filterrific, :school) %></th>
-			<th>Класс/группа</th>
-		</tr>
-		<% @users.each do |user| %>
-			<tr <% if @team.users.include?(user) %>style="background-color: #eeffee"<% end %>>
-				<td>
-					<%= link_to team_path(:team_id => @team.id, :user_id => user.id), :method => :put do %>
-						<%= user.lastName %>
-						<%= user.firstName %>
-						<%= user.fathersName %>
-					<% end %>
-				</td>
-				<td><%= user.school %></td>
-				<td><%= user.group %></td>
+		<thead>
+			<tr class="sorting-header">
+				<th onclick="sortTable(0)">Имя</th>
+				<th onclick="sortTable(1)">Учебное заведение</th>
+				<th onclick="sortTable(2)">Класс/группа</th>
+				<th onclick="sortTable(3)">Рейтинг</th>
 			</tr>
-		<% end %>
+		</thead>
+		<tbody id="table">
+			<% @users.each do |user| %>
+				<tr <% if @team.users.include?(user) %>style="background-color: #eeffee"<% end %>  id="id<%=user.id%>">
+					<td>
+						<%= link_to team_path(:team_id => @team.id, :user_id => user.id), :method => :put do %>
+							<%= user.lastName %>
+							<%= user.firstName %>
+							<%= user.fathersName %>
+						<% end %>
+					</td>
+					<td><%= user.school %></td>
+					<td><%= user.group %></td>
+					<td><span id="rating<%= user.id %>"></span><span id="cfhandle<%= user.id %>" style="display: none;"><%= user.cfhandle %></span></td>
+				</tr>
+			<% end %>
+		</tbody>
 	</table>
 </div>
-
-<%= will_paginate @users %> 
- 

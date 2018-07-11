@@ -1,40 +1,77 @@
+<%= javascript_include_tag('list.js') %>
+<%= javascript_include_tag('searchAndSort.js') %>
+
 <h1>Команда <%= @team.teamTitle %></h1>
 
 <% if not logged_in? or not @team.users.include?(current_user) %>
 	redirect_to root_page
 <% end %>
-<table class = "listing team">
-	<tr>
-		<th>Имя участника</th>
-		<th>Учебное заведение</th>
-		<th>Класс/группа</th>
-		<th></th>
-	</tr>
-	<% @team.users.sort_by{|user| user.lastName}.each do |user| %>
+
+<table class='listing'>
+	<tbody>
 		<tr>
-			<td><%= user.lastName %>&nbsp;<%= user.firstName %>&nbsp;<%= user.fathersName %></td>
 			<td>
-				<%= user.school %>
+				<input type="text" id="searchName" onkeyup="filterSearch('Name', 0)" placeholder="Имя">
 			</td>
 			<td>
-				<%= user.group %>
+				<input type="text" id="searchSchool" onkeyup="filterSearch('School', 1)" placeholder="Учебное заведение">
 			</td>
-			<td><%= link_to team_path(:team_id => @team.id, :user_id => user.id), :method => :put, data: { confirm: ('Выгнать участника '+user.lastName+' из команды?') } do %>
-					<span class="glyphicon glyphicon-remove-circle"></span>
-				<% end %>
+			<td>
+				<input type="text" id="searchGroup" onkeyup="filterSearch('Group', 2)" placeholder="Класс/группа">
+			</td>
+			<td>
+				<input type="text" id="searchMin" onkeyup="filterRating('Min')" placeholder="min"> &mdash; <input type="text" id="searchMax" onkeyup="filterRating('Max')" placeholder="max">
 			</td>
 		</tr>
-	<% end %>
-	<tr>
-		<td class="no-overflow">
-				<%= link_to edit_team_path(@team) do %>
-					<span class="glyphicon glyphicon-plus-sign"></span> Добавить участника в команду
-				<% end %>
-		</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
+	</tbody>
+</table>
+
+<table class = "listing team">
+	<thead>
+		<tr class="sorting-header">
+			<th onclick="sortTable(0)">Имя</th>
+			<th onclick="sortTable(1)">Учебное заведение</th>
+			<th onclick="sortTable(2)">Класс/группа</th>
+			<th onclick="sortTable(3)">Рейтинг</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody id="table">
+		<% @team.users.sort_by{|user| user.lastName}.each do |user| %>
+			<tr id="id<%=user.id%>">
+				<td><%= user.lastName %>&nbsp;<%= user.firstName %>&nbsp;<%= user.fathersName %></td>
+				<td>
+					<%= user.school %>
+				</td>
+				<td>
+					<%= user.group %>
+				</td>
+				<td>
+					<span id="rating<%= user.id %>"></span><span id="cfhandle<%= user.id %>" style="display: none;"><%= user.cfhandle %></span>
+				</td>
+				<td><%= link_to team_path(:team_id => @team.id, :user_id => user.id), :method => :put, data: { confirm: ('Выгнать участника '+user.lastName+' из команды?') } do %>
+						<span class="glyphicon glyphicon-remove-circle"></span>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<table class='listing'>
+	<tbody>
+		<tr>
+			<td class="no-overflow">
+					<%= link_to edit_team_path(@team) do %>
+						<span class="glyphicon glyphicon-plus-sign"></span> Добавить участника в команду
+					<% end %>
+			</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
 </table>
 
 <%= link_to 'Назад', teams_path, :class => 'btn btn-primary', :style => 'margin-top: 15px;' %>

@@ -1,5 +1,5 @@
 <% if not logged_in? %>
-	<p>Для просмотра своих команд необходимо <%= link_to "войти", '/login' %>.</p>
+	<% controller.redirect_to '/login' %>
 <% else if @event.dateStart > Date.tomorrow %>
 
 <h1>Выберите команду для участия в <%= @event.eventTitle %>:</h1>
@@ -21,6 +21,6 @@
 	<% end %>
 </table>
 
-<% else redirect_to events_path end end %>
+<% else controller.redirect_to events_path end end %>
 
 <%= link_to 'Назад', events_path, :class => 'btn btn-primary' %>  

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	
 	def index
+		@users = User.all
+=begin
 		@filterrific = initialize_filterrific(
 			User,
 			params[:filterrific],
@@ -15,9 +17,13 @@ class UsersController < ApplicationController
 		rescue ActiveRecord::RecordNotFound => e
 			puts "Had to reset filterrific params: #{ e.message }"
 			redirect_to(reset_filterrific_url(format: :html)) and return
+=end
 	end
 	
 	def show
+		if not logged_in?
+			redirect_to root_path
+		end
 		@user = User.find(params[:id])
 	end
 	
@@ -63,6 +69,6 @@ class UsersController < ApplicationController
 	
 	private
 	def user_params
-		params.require(:user).permit(:lastName, :firstName, :fathersName, :email, :phoneNumber, :born, :school, :group, :teeSize, :password, :occupation, :password_confirmation)
+		params.require(:user).permit(:lastName, :firstName, :fathersName, :email, :cfhandle, :phoneNumber, :born, :school, :group, :teeSize, :password, :occupation, :password_confirmation)
 	end
 end

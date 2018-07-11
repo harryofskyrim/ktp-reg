@@ -1,17 +1,5 @@
-<%= form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' } do |f| %>
-  <div>
-    Поиск
-    <%= f.text_field(
-      :search_query,
-      class: 'filterrific-periodically-observed'
-    ) %>
-	<%= f.submit 'Поиск', :class => 'btn btn-primary' %>
-    <%= link_to(
-      'Сброс',
-      reset_filterrific_url, :class => 'btn btn-primary'
-    ) %>
-  </div>
-<% end %>
+
+
 
 <%= render(
   partial: 'users/list'

@@ -2,14 +2,22 @@ class User < ApplicationRecord
 	has_and_belongs_to_many :teams
 	has_and_belongs_to_many :events
 		
+=begin
 	scope :search_query, lambda { |query|
 		return nil  if query.blank?
-	                            
-		terms = query.downcase.split(/\s+/)
+		@uppercase_alphabet = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+		@lowercase_alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+	    def downcase_word(word)
+			return word.tr(@uppercase_alphabet, @lowercase_alphabet)
+		end                        
+	
+		#terms = query.downcase.split(/\s+/)
+		query = downcase_word(query)
+		terms = query.split(/\s+/)
 		terms = terms.map { |e|
 			(e.gsub('*', '%') + '%').gsub(/%+/, '%')
 		}
-	                            
+
 		num_or_conds = 2
 			where(
 				terms.map { |term| "(LOWER(users.firstName) LIKE ? OR LOWER(users.lastName) LIKE ?)"}.join(' AND '),
@@ -32,6 +40,7 @@ class User < ApplicationRecord
 			:search_query, :sorted_by
 	                       ]
 	)
+=end
 	
 	before_save { self.email = email.downcase }
 	validates :lastName, presence: true, length: { maximum: 50 }

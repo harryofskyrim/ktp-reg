@@ -1,72 +1,86 @@
+<%= javascript_include_tag('validateForm.js') %>
+
 <% if not logged_in? %>
 	redirect_to root_path
 <% end %>
 
 <h1>Редактирование основной информации:</h1>
  
-<%= form_with model: @user, local: true do |form| %>
+<%= form_with model: @user, local: true, id: 'form' do |form| %>
  
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@user.errors.count, "error") %> prohibited
-        this user from being saved:
-      </h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<% if @user.errors.any? %>
+		<div id="error_explanation">
+			<h2>
+				<%= pluralize(@user.errors.count, "error") %> prohibited
+				this user from being saved:
+			</h2>
+			<ul>
+				<% @user.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
  
-  <p>
-    <%= form.label :lastName %><br>
-    <%= form.text_field :lastName %>
-  </p>
+	<div>
+		<%= form.label :lastName %><br>
+		<%= form.text_field :lastName, class: 'form-control', id: 'lastName', onkeyup: 'validate()' %>
+		<div class="error_message" id="lastNameError"></div>
+	</div>
+	
+	<div>
+		<%= form.label :firstName %><br>
+		<%= form.text_field :firstName, class: 'form-control', id: 'firstName', onkeyup: 'validate()' %>
+		<div class="error_message" id="firstNameError"></div>
+	</div>
+	
+	<div>
+		<%= form.label :fathersName %><br>
+		<%= form.text_field :fathersName, class: 'form-control', id: 'fathersName', onkeyup: 'validate()' %>
+		<div class="error_message" id="fathersNameError"></div>
+	</div>
+	
+	<div>
+		<div>
+			<%= form.label :occupation %><br>
+			<%= form.radio_button(:occupation, "school", id: 'school', onclick: 'validate()') %>
+			<%= form.label(:occupation_school, "Школьник") %>
+			<%= form.radio_button(:occupation, "higher", id: 'higher', onclick: 'validate()') %>
+			<%= form.label(:occupation_higher, "Студент") %>
+		</div>
+		<div class="error_message" id="schoolError"></div>
+	</div>
  
-  <p>
-    <%= form.label :firstName %><br>
-    <%= form.text_field :firstName %>
-  </p>
+	<div>
+		<%= form.label :school %><br>
+		<%= form.text_field :school %>
+	</div>
  
-  <p>
-    <%= form.label :fathersName %><br>
-    <%= form.text_field :fathersName %>
-  </p>
-  
-  <p>
-    <%= form.label :occupation %><br>
-    <%= form.radio_button(:occupation, "school") %>
-    <%= form.label(:occupation_school, "Школьник") %>
-    <%= form.radio_button(:occupation, "higher") %>
-    <%= form.label(:occupation_higher, "Студент") %>
-  </p>
+	<div>
+		<%= form.label :group %><br>
+		<%= form.text_field :group %>
+	</div>
+	
+	<div>
+		<%= form.label :cfhandle %><br>
+		<%= form.text_field :cfhandle, id: 'cfhandle' %>
+		<div class="error_message" id="cfhandleError"></div>
+	</div>
  
-  <p>
-    <%= form.label :school %><br>
-    <%= form.text_field :school %>
-  </p>
+	<div>
+		<%= form.label :phoneNumber %><br>
+		<%= form.text_field :phoneNumber %>
+	</div>
  
-  <p>
-    <%= form.label :group %><br>
-    <%= form.text_field :group %>
-  </p>
- 
-  <p>
-    <%= form.label :phoneNumber %><br>
-    <%= form.text_field :phoneNumber %>
-  </p>
- 
-  <p>
-    <%= form.label :teeSize %><br>
-    <%= form.text_field :teeSize %>
-  </p>
+	<div>
+		<%= form.label :teeSize %><br>
+		<%= form.text_field :teeSize %>
+	</div>
 
-  <p>
-    <%= form.submit "Сохранить" , :class => 'btn btn-primary' %>
+	<div>
+		<%= form.submit "Сохранить" , :class => 'btn btn-primary', :id => 'submit' %>
 	<%= link_to 'Отмена', user_path, :class => 'btn btn-primary' %> 
-  </p>
+	</div>
  
 <% end %>
  

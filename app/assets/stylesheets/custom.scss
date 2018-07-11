@@ -139,17 +139,29 @@ table.teams tr th:nth-child(5){
 	width: 40px;
 }
 
-table.team tr th:nth-child(3){
+table.team tr th:nth-child(4){
 	width: 160px;
 }
 
-table.team tr th:nth-child(4){
+table.team tr th:nth-child(5){
 	width: 40px;
 }
 
 .listing td.no-overflow {
 	overflow: visible;
 	text-overflow: initial;
+}
+
+thead .sorting-header {
+	text-decoration: underline;
+    cursor: pointer;
+}
+
+/* seach and filter */
+
+td #searchMax,
+td #searchMin {
+	width: 50px;
 }
 
 /* profile div */
@@ -176,6 +188,14 @@ div.contain {
 	margin: auto;
 }
 
+div.contain div {
+	padding: 5px 5px;
+}
+
+#form div {
+	padding: 5px 10px;
+}
+
 /* error styling */
 
 #error_explanation {
@@ -195,4 +215,14 @@ pre {
 
 .btn {
 	margin: 10px 0px;
+}
+
+.error_message {
+	color: red;
+	margin-top: 0px;
+}
+
+.error {
+	background: #ffe5e2;
+	box-shadow: 0 0 5px 5px white inset;
 }
